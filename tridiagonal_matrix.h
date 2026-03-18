@@ -41,4 +41,4 @@ int allocateMemArray(void **memArray, unsigned int matrixSize, const Algebra *sc
     return 1;
 */
 
-#endif
+#endif //_TRIDIAGONAL_MATRIX_H_
