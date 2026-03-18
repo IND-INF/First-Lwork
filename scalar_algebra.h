@@ -13,4 +13,4 @@ typedef struct _struct_Algebra{
     size_t elementSize;
 } Algebra;
 
-#endif
+#endif //_SCALAR_ALGEBRA_H_
