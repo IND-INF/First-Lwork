@@ -7,4 +7,4 @@ const Algebra *getRealNumberAlgebra(void);
 void assignRealNumber(void *element, double value);
 void recieveRealNumber(void *element, double *value);
 
-#endif
+#endif //_REAL_NUMBER_ALGEBRA_H_
