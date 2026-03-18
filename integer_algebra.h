@@ -7,4 +7,4 @@ const Algebra *getIntegerAlgebra(void);
 void assignInteger(void *element, int value);
 void recieveInteger(void *element, int *value);
 
-#endif
+#endif //_INTEGER_ALGEBRA_H_
