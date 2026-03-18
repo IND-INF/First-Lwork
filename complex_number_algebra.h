@@ -7,4 +7,4 @@ const Algebra *getComplexNumberAlgebra(void);
 void assignComplexNumber(void *element, double realPartValue, double imaginaryPartValue);
 void recieveComplexNumber(void *element, double *realPartValue, double *imaginaryPartValue);
 
-#endif
+#endif //_COMPLEX_NUMBER_ALGEBRA_H_
