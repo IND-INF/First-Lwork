@@ -3,4 +3,4 @@
 
 int doTheTest(void);
 
-#endif
+#endif //_TEST_OF_THE_STRUCTURE_H_
