@@ -1,11 +1,12 @@
 .PHONY: clean
-CFLAGS = -Iinclude -Wall -g
+CFLAGS = -Wall -g
+OBJ = main.o test_of_the_structure.o tridiagonal_matrix.o real_number_algebra.o complex_number_algebra.o
 
-main : *.o
-	gcc $(CFLAGS) *.o -o main
+main: $(OBJ)
+	gcc $(OBJ) -o main
 
-%.o : %.c
+%.o: %.c
 	gcc $(CFLAGS) -c $< -o $@
 
 clean:
-	del *.o main
+	del $(OBJ) main
