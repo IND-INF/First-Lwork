@@ -5,7 +5,7 @@ main : *.o
 	gcc *.o -o main
 
 %.o : %.c
-	gcc $(CGLAGS) -c $< -o $@
+	gcc $(CFLAGS) -c $< -o $@
 
 clean:
 	del *.o main
