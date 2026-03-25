@@ -70,19 +70,19 @@ int createTridiagonalMatrix(TriMatrix *mat, size_t matrixSize, const Algebra *sc
     mat->size = matrixSize;
     mat->alg = scalarAlgebra;
 
+    if(!(mat->princDia = malloc((matrixSize)*(scalarAlgebra->elementSize)))){
+        return 0;
+    }
     if(matrixSize > 1){
         if(!(mat->supDia = malloc((matrixSize-1)*(scalarAlgebra->elementSize)))){
+            free(mat->princDia);
             return 0;
         }
         if(!(mat->infDia = malloc((matrixSize-1)*(scalarAlgebra->elementSize)))){
+            free(mat->princDia);
             free(mat->supDia);
             return 0;
         }
-    }
-    if(!(mat->princDia = malloc((matrixSize)*(scalarAlgebra->elementSize)))){
-        free(mat->supDia);
-        free(mat->infDia);
-        return 0;
     }
 
     return 1;
