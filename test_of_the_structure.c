@@ -147,7 +147,9 @@ int checkCNumRecieving(double rPart, double iPart, const Algebra *alg){
 }
 
 int allocPtrArr(void **ptrArr, const Algebra *alg){
-    if(!(ptrArr[0] = malloc(alg->elementSize))) return 0;
+    if(!(ptrArr[0] = malloc(alg->elementSize))){
+        return 0;
+    }
     if(!(ptrArr[1] = malloc(alg->elementSize))){
         free(ptrArr[0]);
         return 0;
@@ -973,14 +975,20 @@ int doTheTest(void){
 
     TriMatrix *matrix1;
     if(!declareTridiagonalMatrix(&matrix1)){
+        printf("Bad test matrix allocation\n");
         return 0;
     }
     TriMatrix *matrix2;
     if(!declareTridiagonalMatrix(&matrix2)){
+        printf("Bad test matrix allocation\n");
+        free(matrix1);
         return 0;
     }
     TriMatrix *matrix3;
     if(!declareTridiagonalMatrix(&matrix3)){
+        printf("Bad test matrix allocation\n");
+        free(matrix2);
+        free(matrix1);
         return 0;
     }
     TriMatrix* matrixArr[] = {matrix1, matrix2, matrix3};
