@@ -2,7 +2,7 @@
 CFLAGS = -Iinclude -Wall -g
 
 main : *.o
-	gcc *.o -o main
+	gcc $(CFLAGS) *.o -o main
 
 %.o : %.c
 	gcc $(CFLAGS) -c $< -o $@
