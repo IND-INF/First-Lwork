@@ -103,7 +103,7 @@ int main(void){
     while(!exitFlag){
 
         printf("For assistance, enter 0\n");
-        while(!(scanf("%d", &enteredValue))){
+        while(!(scanf("%lld", &enteredValue))){
             WRONG_INPUT_MACRO
         }
 
@@ -120,7 +120,7 @@ int main(void){
             case 1:
 
                 printf("Enter the size of the matrix\n");
-                while(!(scanf("%d", &newMatrixSize))){
+                while(!(scanf("%lld", &newMatrixSize))){
                     WRONG_INPUT_MACRO
                 }
                 if(newMatrixSize < 1){
@@ -131,7 +131,7 @@ int main(void){
                 printf("Enter the type of the matrix:\n");
                 printf("- For the real number type, enter 1;\n");
                 printf("- For the complex number type, enter 2\n");
-                while(!(scanf("%d", &matrixType))){
+                while(!(scanf("%lld", &matrixType))){
                     WRONG_INPUT_MACRO
                 }
                 if(matrixType != 1 && matrixType != 2){
@@ -206,10 +206,10 @@ int main(void){
                 }
 
                 printf("Enter the row and the column of the element (starting the count from 0)\n");
-                while(!(scanf("%d", &sizeSub1))){
+                while(!(scanf("%lld", &sizeSub1))){
                     WRONG_INPUT_MACRO
                 }
-                while(!(scanf("%d", &sizeSub2))){
+                while(!(scanf("%lld", &sizeSub2))){
                     WRONG_INPUT_MACRO
                 }
                 if(sizeSub1 >= matrixSize || sizeSub2 >= matrixSize){
@@ -266,7 +266,7 @@ int main(void){
                     break;
                 }
 
-                printf("Notification: the matrix size is %d, the matrix type is ", matrixSize);
+                printf("Notification: the matrix size is %lld, the matrix type is ", matrixSize);
                 if(matrixType == 1){
                     printf("the real number type\n");
                 }else{
@@ -352,10 +352,10 @@ int main(void){
                 }
 
                 printf("Enter the row and the column of the element (starting the count from 0)\n");
-                while(!(scanf("%d", &sizeSub1))){
+                while(!(scanf("%lld", &sizeSub1))){
                     WRONG_INPUT_MACRO
                 }
-                while(!(scanf("%d", &sizeSub2))){
+                while(!(scanf("%lld", &sizeSub2))){
                     WRONG_INPUT_MACRO
                 }
                 if(sizeSub1 >= matrixSize || sizeSub2 >= matrixSize){
