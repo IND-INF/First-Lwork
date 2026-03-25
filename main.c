@@ -89,11 +89,14 @@ int main(void){
     TriMatrix *matrixSub;
     if(!declareTridiagonalMatrix(&matrixSub)){
         printf("Bad allocation\n");
+        free(matrix);
         return 0;
     }
     TriMatrix *matrixInterm;
     if(!declareTridiagonalMatrix(&matrixInterm)){
         printf("Bad allocation\n");
+        free(matrixSub);
+        free(matrix);
         return 0;
     }
 
@@ -174,17 +177,21 @@ int main(void){
                     printComplexNumbersNotification();
                 }
                 
-                printf("Enter the superior diagonal of the matrix\n");
-                for(size_t number = 0; number < matrixSize - 1; number++){
-                    scanAndModify(ptrSub, number, number+1, matrix, matrixTypeAlgebra);
+                if(matrixSize > 1){
+                    printf("Enter the superior diagonal of the matrix\n");
+                    for(size_t number = 0; number < matrixSize - 1; number++){
+                        scanAndModify(ptrSub, number, number+1, matrix, matrixTypeAlgebra);
+                    }
                 }
                 printf("Enter the principal diagonal of the matrix\n");
                 for(size_t number = 0; number < matrixSize; number++){
                     scanAndModify(ptrSub, number, number, matrix, matrixTypeAlgebra);
                 }
-                printf("Enter the inferior diagonal of the matrix\n");
-                for(size_t number = 0; number < matrixSize - 1; number++){
-                    scanAndModify(ptrSub, number+1, number, matrix, matrixTypeAlgebra);
+                if(matrixSize > 1){
+                    printf("Enter the inferior diagonal of the matrix\n");
+                    for(size_t number = 0; number < matrixSize - 1; number++){
+                        scanAndModify(ptrSub, number+1, number, matrix, matrixTypeAlgebra);
+                    }
                 }
                 matrixExistence = 1;
 
@@ -267,17 +274,21 @@ int main(void){
                     printComplexNumbersNotification();
                 }
 
-                printf("Enter the superior diagonal of the matrix you want the current matrix to be added to\n");
-                for(size_t number = 0; number < matrixSize - 1; number++){
-                    scanAndModify(ptrSub, number, number+1, matrixSub, matrixTypeAlgebra);
+                if(matrixSize > 1){
+                    printf("Enter the superior diagonal of the matrix you want the current matrix to be added to\n");
+                    for(size_t number = 0; number < matrixSize - 1; number++){
+                        scanAndModify(ptrSub, number, number+1, matrixSub, matrixTypeAlgebra);
+                    }
                 }
                 printf("Enter the principal diagonal of the matrix you want the current matrix to be added to\n");
                 for(size_t number = 0; number < matrixSize; number++){
                     scanAndModify(ptrSub, number, number, matrixSub, matrixTypeAlgebra);
                 }
-                printf("Enter the inferior diagonal of the matrix you want the current matrix to be added to\n");
-                for(size_t number = 0; number < matrixSize - 1; number++){
-                    scanAndModify(ptrSub, number+1, number, matrixSub, matrixTypeAlgebra);
+                if(matrixSize > 1){
+                    printf("Enter the inferior diagonal of the matrix you want the current matrix to be added to\n");
+                    for(size_t number = 0; number < matrixSize - 1; number++){
+                        scanAndModify(ptrSub, number+1, number, matrixSub, matrixTypeAlgebra);
+                    }
                 }
 
                 addTridiagonalMatrices(matrix, matrixSub, matrixInterm);
@@ -380,6 +391,9 @@ int main(void){
         }
     }
 
+    freeTridiagonalMatrix(matrix);
+    freeTridiagonalMatrix(matrixSub);
+    freeTridiagonalMatrix(matrixInterm);
     free(matrix);
     free(matrixSub);
     free(matrixInterm);
